@@ -8,6 +8,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +24,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: StreamBuilder(
@@ -82,52 +86,56 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
-
         body: _pages[currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.shifting,
 
-          currentIndex: currentIndex,
-          selectedIconTheme: const IconThemeData(color: Colors.black),
-          selectedFontSize: 14,
-          selectedItemColor:  Colors.black,
-          unselectedItemColor: Colors.black,
+        bottomNavigationBar: CurvedNavigationBar(
+
+          index: currentIndex,
+          height: 57,
+          color: Colors.deepPurpleAccent,
+
+          backgroundColor: Colors.transparent,
+          buttonBackgroundColor: Colors.white,
+          animationCurve: Curves.easeInOut,
+          animationDuration: Duration(milliseconds: 300),
+
+          items: profileType == 'Admin'
+              ? [
+            _buildNavItem(Icons.event, 'Activity'),
+            _buildNavItem(Icons.person, 'Profile'),
+            _buildNavItem(Icons.admin_panel_settings, 'Admin'),
+          ]
+              : [
+            _buildNavItem(Icons.event, 'Activity'),
+            _buildNavItem(Icons.person, 'Profile'),
+          ],
           onTap: (int index) {
             setState(() {
               currentIndex = index;
             });
           },
-          items: profileType == 'Admin'
-              ? const [
-                  BottomNavigationBarItem(
-
-                    icon: Icon(Icons.event),
-                    label: 'Activity',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: 'Profile',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.admin_panel_settings),
-                    label: 'Admin',
-                  ),
-                ]
-              : const [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.event),
-                    label: 'Activity',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: 'Profile',
-                  ),
-                ],
         ),
       ),
     );
   }
+}
+Widget _buildNavItem(IconData icon, String text) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Padding(
+        padding: const EdgeInsets.only(bottom: 1), // Adjust the bottom padding as needed
+        child: Icon(icon, size: 30),
+      ),
+      Text(
+        text,
+        style: TextStyle(fontSize: 12), // Adjust the font size as needed
+      ),
+    ],
+  );
 }
