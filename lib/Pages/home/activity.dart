@@ -150,7 +150,9 @@ class _ActivityPageState extends State<ActivityPage> {
           style: TextStyle(
             fontSize: 22,
           ),
+
         ),
+        backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
@@ -167,7 +169,7 @@ class _ActivityPageState extends State<ActivityPage> {
             },
           ),
         ],
-        backgroundColor: Colors.black,
+
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -438,12 +440,6 @@ class _ActivityPageState extends State<ActivityPage> {
 
 
 }
-
-
-
-
-
-
 
 class Event {
   final String? id; // Make id nullable

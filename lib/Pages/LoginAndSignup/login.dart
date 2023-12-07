@@ -29,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Container(
           height: size.height,
           width: size.width,
+          padding: EdgeInsets.only(top: size.height * 0.1),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -46,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 children: [
                   SizedBox(
-                    width: size.width * 0.12,
+                    width: size.width * 0.10,
                   ),
                   FadeInUp(
                     duration: Duration(milliseconds: 800),
@@ -62,12 +63,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
+
+              SizedBox(height: size.height * 0.04),
               FadeInUp(
+
                 duration: Duration(milliseconds: 1200),
                 child: SizedBox(
                   width: size.width * 0.8,
-                  height: 50,
+                  height: size.height * 0.08,
                   child: TextFormField(
                     controller: emailController,
                     decoration: InputDecoration(
@@ -92,12 +95,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 10),
               FadeInUp(
                 duration: Duration(milliseconds: 1600),
                 child: SizedBox(
                   width: size.width * 0.8,
-                  height: 50,
+                  height: size.height * 0.08,
                   child: TextFormField(
                     controller: passwordController,
                     obscureText: true,
@@ -123,11 +126,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: size.height* 0.03),
               FadeInUp(
                 duration: Duration(milliseconds: 2000),
                 child: SizedBox(
-                  height: 40,
+                  height: size.height*0.055,
                   width: 120,
                   child: ElevatedButton(
                     onPressed: () async {
@@ -197,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   color: const Color.fromARGB(255, 62, 62, 62),
                   width: size.width,
-                  height: 80,
+                  height: (size.height * 0.09)+10,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -208,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 18,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: size.width*0.01),
                       InkWell(
                         onTap: () => Navigator.push(
                           context,

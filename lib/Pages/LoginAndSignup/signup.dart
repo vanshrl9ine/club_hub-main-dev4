@@ -258,10 +258,12 @@ class _SignupPageState extends State<SignupPage> {
                 Container(
                   color: const Color.fromARGB(255, 62, 62, 62),
                   width: size.width,
-                  height: 80,
+                  height: (size.height * 0.09)+10,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+
                     children: <Widget>[
+
                       const Text(
                         'Already have an account ?',
                         style: TextStyle(color: Colors.white,
