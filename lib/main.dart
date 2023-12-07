@@ -103,7 +103,6 @@ class _HomePageState extends State<HomePage> {
           buttonBackgroundColor: Colors.white,
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 300),
-
           items: profileType == 'Admin'
               ? [
             _buildNavItem(Icons.event, 'Activity'),
