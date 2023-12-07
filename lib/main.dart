@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
         body: _pages[currentIndex],
 
         bottomNavigationBar: CurvedNavigationBar(
-
+          
           index: currentIndex,
           height: 57,
           color: Colors.deepPurpleAccent,

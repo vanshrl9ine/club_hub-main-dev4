@@ -170,7 +170,7 @@ class _ActivityPageState extends State<ActivityPage> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.add), // Change this to the desired icon
+            icon: Icon(Icons.person_rounded), // Change this to the desired icon
             onPressed: () {
               // Add your logic to open a new page when the new icon is pressed
               _newpage();
